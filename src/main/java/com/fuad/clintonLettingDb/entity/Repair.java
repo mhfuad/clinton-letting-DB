@@ -1,17 +1,16 @@
 package com.fuad.clintonLettingDb.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString(exclude = "partUsed")
 public class Repair {
 
     @Id
@@ -19,4 +18,8 @@ public class Repair {
     private Long id;
     private String repair_details;
     private Long property_id;
+    @OneToOne(
+            mappedBy = "repair"
+    )
+    private PartUsed partUsed;
 }

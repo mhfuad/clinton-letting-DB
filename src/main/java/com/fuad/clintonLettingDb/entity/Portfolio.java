@@ -26,6 +26,7 @@ public class Portfolio {
     )
     private Client client;
 
+
     @OneToOne(
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER,
